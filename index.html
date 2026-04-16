@@ -271,12 +271,21 @@
     pointer-events: none;
   }
 
-  /* Instagram tab */
-  .insta-tab {
+  /* Sidebar tabs wrapper */
+  .side-tabs {
     position: fixed;
     top: 50%;
     right: 0;
-    transform: translateY(-50%) rotate(0deg);
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 100;
+  }
+
+  /* Instagram tab */
+  .insta-tab {
+    position: static;
     background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
     color: #fff;
     font-family: 'Bebas Neue', cursive;
@@ -307,51 +316,55 @@
     flex-shrink: 0;
   }
 
-  /* Facebook share button */
-  .share-btn {
+  /* Facebook share tab */
+  .fb-tab {
+    position: static;
     background: #1877f2;
     color: #fff;
-    border: none;
-    padding: 13px 32px;
     font-family: 'Bebas Neue', cursive;
-    font-size: 1.4rem;
+    font-size: 0.95rem;
     letter-spacing: 0.15em;
-    border-radius: 4px;
+    padding: 12px 10px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-decoration: none;
+    border-radius: 8px 0 0 8px;
+    box-shadow: -3px 0 16px rgba(0,0,0,0.4);
+    z-index: 100;
+    transition: padding 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: transform 0.15s, box-shadow 0.15s;
-    box-shadow: 0 4px 16px rgba(24,119,242,0.35);
+    border: none;
   }
 
-  .share-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(24,119,242,0.5);
+  .fb-tab:hover {
+    padding-right: 16px;
+    box-shadow: -6px 0 24px rgba(24,119,242,0.5);
   }
 
-  .share-btn svg {
-    width: 20px;
-    height: 20px;
+  .fb-tab svg {
+    width: 18px;
+    height: 18px;
     fill: white;
-  }
-
-  .action-row {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-shrink: 0;
   }
 </style>
 </head>
 <body>
 
-<!-- Instagram Tab -->
-<a class="insta-tab" href="https://www.instagram.com/grizcomedy?igsh=MWx2MWM2YXl0b2N5cQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-  FOLLOW GRIZCOMEDY
-</a>
+<!-- Sidebar Tabs -->
+<div class="side-tabs">
+  <a class="insta-tab" href="https://www.instagram.com/grizcomedy?igsh=MWx2MWM2YXl0b2N5cQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    FOLLOW GRIZCOMEDY
+  </a>
+  <button class="fb-tab" onclick="shareToFacebook()">
+    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    SHARE ON FACEBOOK
+  </button>
+</div>
 
 <div class="container">
   <h1>GRIZ OR TAILS</h1>
@@ -376,13 +389,7 @@
 
   <div class="result-label" id="resultLabel">—</div>
 
-  <div class="action-row">
-    <button class="flip-btn" id="flipBtn" onclick="flipCoin()">FLIP IT</button>
-    <button class="share-btn" onclick="shareToFacebook()">
-      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      SHARE
-    </button>
-  </div>
+  <button class="flip-btn" id="flipBtn" onclick="flipCoin()">FLIP IT</button>
 
   <div class="score-row">
     <div class="score-item">
@@ -405,30 +412,78 @@
   let isFlipping = false;
   let currentSide = 'griz'; // track which side is up
 
-  // --- Coin sound via Web Audio API ---
+  // --- Realistic coin sound via Web Audio API ---
   function playCoinSound() {
     try {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const duration = 1.4;
+      const totalDuration = 1.4;
 
-      // Multiple tings at increasing speed to simulate spinning
-      const times = [0, 0.18, 0.33, 0.46, 0.57, 0.66, 0.74, 0.81, 0.87, 0.92, 0.96, 0.99, 1.01, 1.03, 1.05, 1.1, 1.2];
-      times.forEach((t, i) => {
-        const osc = ctx.createOscillator();
+      // --- Initial hard clink on toss ---
+      function makeClink(time, freq, vol, decay) {
+        const osc1 = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
         const gain = ctx.createGain();
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        // Slightly different pitch each ting for realism
-        osc.frequency.value = 1800 + Math.random() * 400;
-        osc.type = 'sine';
-        const vol = i < times.length - 3 ? 0.18 : 0.08; // quieter at end
-        gain.gain.setValueAtTime(0, ctx.currentTime + t);
-        gain.gain.linearRampToValueAtTime(vol, ctx.currentTime + t + 0.005);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + 0.18);
-        osc.start(ctx.currentTime + t);
-        osc.stop(ctx.currentTime + t + 0.2);
-      });
-    } catch(e) {}
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.value = freq;
+        filter.Q.value = 8;
+        osc1.type = 'triangle';
+        osc2.type = 'sawtooth';
+        osc1.frequency.value = freq;
+        osc2.frequency.value = freq * 1.41;
+        osc1.connect(filter); osc2.connect(filter); filter.connect(gain); gain.connect(ctx.destination);
+        gain.gain.setValueAtTime(0, ctx.currentTime + time);
+        gain.gain.linearRampToValueAtTime(vol, ctx.currentTime + time + 0.003);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + time + decay);
+        osc1.start(ctx.currentTime + time); osc1.stop(ctx.currentTime + time + decay + 0.05);
+        osc2.start(ctx.currentTime + time); osc2.stop(ctx.currentTime + time + decay + 0.05);
+      }
+
+      // Initial toss clink
+      makeClink(0, 2200, 0.4, 0.35);
+      makeClink(0, 3400, 0.2, 0.25);
+
+      // --- Spinning ticks that speed up then slow down ---
+      // Interval starts wide, gets narrow at peak, widens again at end
+      const spinTicks = [];
+      const peakTime = totalDuration * 0.55;
+      const numTicks = 28;
+      for (let i = 0; i < numTicks; i++) {
+        const p = i / (numTicks - 1); // 0..1
+        // parabolic spacing: dense in middle
+        const distFromPeak = Math.abs(p - (peakTime / totalDuration));
+        const interval = 0.025 + distFromPeak * 0.32;
+        const t = i === 0 ? 0.05 : spinTicks[i - 1] + interval;
+        spinTicks.push(t);
+        if (t > totalDuration) break;
+        // Volume fades toward end
+        const vol = 0.12 * (1 - Math.pow(Math.max(0, (t - 0.9) / 0.5), 1.5));
+        makeClink(t, 2400 + Math.random() * 600, Math.max(0.01, vol), 0.06 + Math.random() * 0.04);
+      }
+
+      // --- Final settle: two soft landing taps ---
+      makeClink(totalDuration - 0.18, 1800, 0.22, 0.12);
+      makeClink(totalDuration - 0.06, 1600, 0.12, 0.08);
+
+      // --- Subtle noise burst on landing ---
+      const bufSize = ctx.sampleRate * 0.08;
+      const noiseBuffer = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+      const data = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < bufSize; i++) data[i] = (Math.random() * 2 - 1) * 0.15;
+      const noiseSource = ctx.createBufferSource();
+      noiseSource.buffer = noiseBuffer;
+      const noiseGain = ctx.createGain();
+      const noiseFilter = ctx.createBiquadFilter();
+      noiseFilter.type = 'highpass';
+      noiseFilter.frequency.value = 3000;
+      noiseSource.connect(noiseFilter); noiseFilter.connect(noiseGain); noiseGain.connect(ctx.destination);
+      noiseGain.gain.setValueAtTime(0, ctx.currentTime + totalDuration - 0.19);
+      noiseGain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + totalDuration - 0.17);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + totalDuration);
+      noiseSource.start(ctx.currentTime + totalDuration - 0.19);
+      noiseSource.stop(ctx.currentTime + totalDuration + 0.1);
+
+    } catch(e) { console.warn('Audio error:', e); }
   }
 
   // --- Facebook Share ---
@@ -494,3 +549,4 @@
 </script>
 </body>
 </html>
+
